@@ -1,24 +1,19 @@
 #pragma once
 
 
-#include <QWidget>
+#include <QLayout>
 #include <QMainWindow>
-#include <QLabel>
-#include <QSpinBox>
-#include <QRadioButton>
-#include <QTextEdit>
-#include <QFormLayout>
-#include <QGridLayout>
-#include <QBoxLayout>
-#include <QSlider>
+#include <QWidget>
+
 #include "ColorChanger.hpp"
 
 class MainWindow : public QMainWindow {
     QWidget *centralWidget;
     QVBoxLayout *centralLayout;
-    ColorChanger *colorChangers[3];
-    QLabel *colorLabel;
-    QColor *colorLabelColor;
+    ColorChanger *colorChangers[3]{};
+    QWidget *coloredWidget;
+
+    QColor coloredWidgetColor;
 
     void changeColorEvent();
 

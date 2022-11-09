@@ -16,5 +16,5 @@ class ColorChanger : public QWidget {
 public:
     explicit ColorChanger(const QString &color, QWidget *parent = nullptr);
 
-friend class MainWindow;
+    friend class MainWindow;
 };

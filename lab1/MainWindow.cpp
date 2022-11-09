@@ -1,7 +1,6 @@
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
 #include <QGridLayout>
+#include <QPushButton>
+#include <QWidget>
 
 #include "MainWindow.hpp"
 
@@ -11,44 +10,52 @@ MainWindow::MainWindow() {
     this->setCentralWidget(centralWidget);
     centralLayout = new QVBoxLayout(centralWidget);
 
-//    colorChangers = new ColorChanger *[3];
     colorChangers[0] = new ColorChanger(QString("red"), centralWidget);
-    QObject::connect(colorChangers[0]->slider, &QSlider::sliderMoved, [=](int value) {
-        colorLabelColor->setRed(value);
+    QObject::connect(colorChangers[0]->slider, &QSlider::valueChanged, [=](int value) {
+        coloredWidgetColor.setRed(value);
         this->changeColorEvent();
     });
     colorChangers[1] = new ColorChanger(QString("green"), centralWidget);
-    QObject::connect(colorChangers[1]->slider, &QSlider::sliderMoved, [=](int value) {
-        colorLabelColor->setGreen(value);
+    QObject::connect(colorChangers[1]->slider, &QSlider::valueChanged, [=](int value) {
+        coloredWidgetColor.setGreen(value);
         this->changeColorEvent();
     });
     colorChangers[2] = new ColorChanger(QString("blue"), centralWidget);
-    QObject::connect(colorChangers[2]->slider, &QSlider::sliderMoved, [=](int value) {
-        colorLabelColor->setBlue(value);
+    QObject::connect(colorChangers[2]->slider, &QSlider::valueChanged, [=](int value) {
+        coloredWidgetColor.setBlue(value);
         this->changeColorEvent();
     });
 
     for (auto &colorChanger: colorChangers) {
         centralLayout->addWidget(colorChanger);
     }
-    auto reset = new QPushButton(centralWidget);
-    reset->setText(QString("Reset"));
-    QObject::connect(reset, &QPushButton::clicked, [=]() {
-        colorLabelColor->setRgb(0, 0, 0);
-        this->changeColorEvent();
-    });
-    centralLayout->addWidget(reset);
 
-    colorLabel = new QLabel(centralWidget);
-    centralLayout->stretch(3);
-    centralLayout->addWidget(colorLabel);
-    colorLabelColor = new QColor();
+    auto resetButton = new QPushButton(centralWidget);
+    centralLayout->addWidget(resetButton);
+    resetButton->setText(QString("Reset"));
+    QObject::connect(resetButton, &QPushButton::clicked, [=]() {
+        for (auto &colorChanger: colorChangers)
+            colorChanger->slider->setValue(0);
+    });
+
+    auto setPinkButton = new QPushButton(centralWidget);
+    centralLayout->addWidget(setPinkButton);
+    setPinkButton->setText(QString("Ret pink"));
+    QObject::connect(setPinkButton, &QPushButton::clicked, [=]() {
+        colorChangers[0]->slider->setValue(255);
+        colorChangers[1]->slider->setValue(0);
+        colorChangers[2]->slider->setValue(255);
+    });
+
+    coloredWidget = new QWidget(centralWidget);
+    centralLayout->addWidget(coloredWidget);
+    coloredWidget->setAutoFillBackground(true);
+    coloredWidget->setPalette(QPalette(coloredWidgetColor));
+    ;
     this->changeColorEvent();
     centralWidget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-
-
 }
 
 void MainWindow::changeColorEvent() {
-    colorLabel->setStyleSheet("background-color: #" + QString::number(colorLabelColor->rgb(), 16));
+    coloredWidget->setPalette(QPalette(coloredWidgetColor));
 }

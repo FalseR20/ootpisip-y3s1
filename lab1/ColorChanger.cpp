@@ -17,5 +17,5 @@ ColorChanger::ColorChanger(const QString &color, QWidget *parent) : QWidget(pare
     slider = new QSlider(Qt::Orientation::Horizontal, this);
     layout->addWidget(slider);
     slider->setRange(0, 255);
-    QObject::connect(slider, &QSlider::sliderMoved, [=](int value) { spinBox->setValue(value); });
+    QObject::connect(slider, &QSlider::valueChanged, [=](int value) { spinBox->setValue(value); });
 }

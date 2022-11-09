@@ -15,10 +15,8 @@
 
 class MainWindow : public QMainWindow {
     QWidget *centralWidget;
-    QHBoxLayout *centralLayout;
-    QWidget *colorChangersWidget;
-    QVBoxLayout *colorChangersLayout;
-    ColorChanger **colorChangers;
+    QVBoxLayout *centralLayout;
+    ColorChanger *colorChangers[3];
     QLabel *colorLabel;
     QColor *colorLabelColor;
 

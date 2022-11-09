@@ -11,10 +11,10 @@ class ColorChanger : public QWidget {
     QLabel *label;
     QSpinBox *spinBox;
     QHBoxLayout *layout;
-public:
     QSlider *slider;
 
+public:
     explicit ColorChanger(const QString &color, QWidget *parent = nullptr);
 
-//    ~ColorChanger() override;
+friend class MainWindow;
 };

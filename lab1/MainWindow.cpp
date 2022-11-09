@@ -8,6 +8,7 @@ MainWindow::MainWindow() {
     this->resize(400, 400);
     centralWidget = new QWidget(this);
     this->setCentralWidget(centralWidget);
+    centralWidget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     centralLayout = new QVBoxLayout(centralWidget);
 
     colorChangers[0] = new ColorChanger(QString("red"), centralWidget);
@@ -51,9 +52,6 @@ MainWindow::MainWindow() {
     centralLayout->addWidget(coloredWidget);
     coloredWidget->setAutoFillBackground(true);
     coloredWidget->setPalette(QPalette(coloredWidgetColor));
-    ;
-    this->changeColorEvent();
-    centralWidget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 }
 
 void MainWindow::changeColorEvent() {

@@ -6,7 +6,8 @@ TaskWidget::TaskWidget(QString description, QWidget *parent): QGroupBox(parent) 
 
     descriptionLabel = new QLabel(description, this);
     descriptionLabel->setFont(QFont("", 12));
+    runWidget = new QWidget(this);
     layout()->addWidget(descriptionLabel);
-    layout()->setAlignment(Qt::Alignment(Qt::AlignTop));
+    layout()->addWidget(runWidget);
     this->setSizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
 }

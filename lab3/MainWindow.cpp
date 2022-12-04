@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 
     // Tasks vector
     tasksVector = {
-            new TaskWidget("1"),
+            new Task1(),
             new TaskWidget("2"),
             new TaskWidget("3"),
             new TaskWidget("4"),
@@ -39,9 +39,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
     taskWidget->show();
 
     // Buttons
+    QString str;
     for (auto i = 0; i < TASKS_COUNT; ++i) {
         auto *tasksButton = new QPushButton(tasksGroupBox);
-        QString str;
         str.sprintf("Task %d", i + 1);
         tasksButton->setText(str);
         tasksButton->setMinimumSize(80, 50);

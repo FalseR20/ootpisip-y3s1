@@ -1,7 +1,7 @@
 #include "ColorChanger.hpp"
 
 
-ColorChanger::ColorChanger(const QString &color, QWidget *parent) : QWidget(parent) {
+ColorChanger::ColorChanger(const QString &color, QWidget *parent): QWidget(parent) {
     this->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     layout = new QHBoxLayout(this);
 

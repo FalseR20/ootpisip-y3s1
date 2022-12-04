@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 
 
-class ColorChanger : public QWidget {
+class ColorChanger: public QWidget {
     QLabel *label;
     QSpinBox *spinBox;
     QHBoxLayout *layout;
@@ -15,6 +15,7 @@ class ColorChanger : public QWidget {
 
 public:
     explicit ColorChanger(const QString &color, QWidget *parent = nullptr);
+
 
     friend class MainWindow;
 };

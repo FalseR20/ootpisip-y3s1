@@ -1,5 +1,6 @@
 #include "MainWindow.hpp"
 #include "tasks/Task1.hpp"
+#include "tasks/Task2.hpp"
 #include <iostream>
 
 
@@ -25,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
     // Tasks vector
     tasksVector = {
             new Task1(),
-            new TaskWidget("2"),
+            new Task2(),
             new TaskWidget("3"),
             new TaskWidget("4"),
             new TaskWidget("5"),

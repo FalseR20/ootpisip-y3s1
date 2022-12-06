@@ -10,6 +10,7 @@ add_executable(lab3 main.cpp
                MainWindow.cpp MainWindow.hpp
                tasks/TaskWidget.cpp tasks/TaskWidget.hpp
                tasks/Task1.cpp tasks/Task1.hpp
+               tasks/Task2.cpp tasks/Task2.hpp
                )
 
 target_link_libraries(lab3 Qt5::Widgets)

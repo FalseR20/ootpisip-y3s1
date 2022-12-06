@@ -3,6 +3,7 @@
 #include "tasks/Task2.hpp"
 #include "tasks/Task3.hpp"
 #include "tasks/Task4.hpp"
+#include "tasks/Task5.hpp"
 #include <iostream>
 
 
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
             new Task2(),
             new Task3(),
             new Task4(),
-            new TaskWidget("5"),
+            new Task5(),
             new TaskWidget("6"),
     };
     for (auto taskWidget: tasksVector) {

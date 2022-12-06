@@ -2,6 +2,7 @@
 #include "tasks/Task1.hpp"
 #include "tasks/Task2.hpp"
 #include "tasks/Task3.hpp"
+#include "tasks/Task4.hpp"
 #include <iostream>
 
 
@@ -29,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
             new Task1(),
             new Task2(),
             new Task3(),
-            new TaskWidget("4"),
+            new Task4(),
             new TaskWidget("5"),
             new TaskWidget("6"),
     };

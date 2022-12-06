@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
             new Task3(),
             new Task4(),
             new Task5(),
-            new TaskWidget("6"),
+//            new TaskWidget("6"),
     };
     for (auto taskWidget: tasksVector) {
         taskWidget->hide();

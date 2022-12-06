@@ -16,7 +16,7 @@ class MainWindow: public QMainWindow {
     QVBoxLayout *centralWidgetLayout;
     QGroupBox *tasksGroupBox;
     QHBoxLayout *tasksGroupBoxLayout;
-    int TASKS_COUNT = 6;
+    int TASKS_COUNT = 5;
     TaskWidget *taskWidget;
     QVector<TaskWidget *> tasksVector;
 

@@ -14,10 +14,6 @@ Task5::Task5(QWidget *parent): TaskWidget(
         ), parent
 ) {
     textEdit = new QTextEdit(runWidget);
-    textEdit->setText("3\n"
-                      "1 2\n"
-                      "2 1 3\n"
-                      "3 2");
     runButton = new QPushButton(runWidget);
     runButton->setText("Run");
     auto *textResult = new QLineEdit(runWidget);
@@ -28,7 +24,18 @@ Task5::Task5(QWidget *parent): TaskWidget(
 
     QWidget::connect(
             runButton, &QPushButton::clicked, [=]() {
-                textResult->setText("Побывали у всех: 2");
+                auto text = textEdit->toPlainText();
+                auto lines = text.split("\n");
+                int count = lines[0].toInt();
+                QString people;
+                for (int i = 1; i < lines.count(); i++) {
+                    if (lines[i].split(" ").count() == count) {
+                        QString is;
+                        is.sprintf(" %d", i);
+                        people += is;
+                    }
+                }
+                textResult->setText("Побывали у всех: " + people);
             }
     );
 }

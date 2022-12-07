@@ -4,6 +4,7 @@
 #include "tasks/Task3.hpp"
 #include "tasks/Task4.hpp"
 #include "tasks/Task5.hpp"
+#include "tasks/AdditionalTask.hpp"
 #include <iostream>
 
 
@@ -33,20 +34,25 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
             new Task3(),
             new Task4(),
             new Task5(),
-//            new TaskWidget("6"),
+            new AdditionalTask(),
     };
-    for (auto taskWidget: tasksVector) {
-        taskWidget->hide();
-        centralWidgetLayout->addWidget(taskWidget);
+    tasksCount = tasksVector.size();
+
+    for (auto task: tasksVector) {
+        task->hide();
+        centralWidgetLayout->addWidget(task);
     }
     taskWidget = tasksVector[0];
     taskWidget->show();
 
     // Buttons
     QString str;
-    for (auto i = 0; i < TASKS_COUNT; ++i) {
+    for (auto i = 0; i < tasksCount; ++i) {
         auto *tasksButton = new QPushButton(tasksGroupBox);
-        str.sprintf("Task %d", i + 1);
+        if (tasksVector[i]->labelText == "")
+            str.sprintf("Task %d", i + 1);
+        else
+            str = tasksVector[i]->labelText;
         tasksButton->setText(str);
         tasksButton->setMinimumSize(80, 50);
         QObject::connect(

@@ -13,5 +13,7 @@ protected:
     QWidget *runWidget;
 
 public:
-    TaskWidget(QString description, QWidget *parent = nullptr);
+    QString labelText;
+
+    explicit TaskWidget(QString description, QWidget *parent = nullptr);
 };

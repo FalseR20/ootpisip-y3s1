@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtSql/QSql>
+#include <QSql>
 #include <QSqlTableModel>
 #include <QSqlDatabase>
 #include <QTableView>
@@ -19,12 +19,14 @@
 namespace Ui {
     class MainWindow;
 }
+
 class MainWindow : public QMainWindow {
 Q_OBJECT
     //QSqlQuery query;
     QSqlDatabase sdb;
+
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
 

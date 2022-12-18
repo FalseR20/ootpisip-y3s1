@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="windowTitle">
+            <string>Lab 7</string>
+        </property>
+        <widget class="QWidget" name="centralwidget">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+                <item>
+                    <layout class="QVBoxLayout" name="verticalLayout">
+                        <item>
+                            <widget class="QPushButton" name="pushButton">
+                                <property name="text">
+                                    <string>Задание 1 (Вертикальный текст)</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="pushButton_2">
+                                <property name="text">
+                                    <string>Задание 2 (Снежинка)</string>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="pushButton_3">
+                                <property name="text">
+                                    <string>Завершение</string>
+                                </property>
+                            </widget>
+                        </item>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

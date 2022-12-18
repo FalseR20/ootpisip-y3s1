@@ -1,12 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-        QMainWindow(parent),
-        ui(new Ui::MainWindow) {
+
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     sdb = QSqlDatabase::addDatabase("QSQLITE");
-    sdb.setDatabaseName("./mydatabase.sqlite");
+    sdb.setDatabaseName("../db.sqlite");
 
     if (!sdb.open()) {
         qDebug() << "DB can't be open";
@@ -62,7 +61,6 @@ MainWindow::MainWindow(QWidget *parent) :
     model3->setTable("track");
     model3->select();
     ui->tableView_3->setModel(model3);
-
 }
 
 MainWindow::~MainWindow() {
